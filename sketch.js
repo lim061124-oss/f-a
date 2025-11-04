@@ -12,11 +12,16 @@ function draw() {
 
   let gravity = createVector(0, 0.3);
   ball.addForce(gravity);
-
-  if(mouseIsPressd)
-    let wind = createVector(0, 0.1)
-  ball.addForce(wind)
-
+   
+    
   ball.update();
   ball.show();
+}
+
+function mouseRelease (){
+  let d = dist(ball.pos.x, ball.pos.y, mouseX, mouseY) 
+  if (d < ball.w/2)
+    let ff = p5.Vector.sub(ball.pos, creareVector(mouseX, mouseY)), ball.pos);
+  ff.mult(0.3);
+  ball.addforce(ff);
 }
