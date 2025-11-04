@@ -13,6 +13,10 @@ function draw() {
   let gravity = createVector(0, 0.3);
   ball.addForce(gravity);
 
+  if(mouseIsPressd)
+    let wind = createVector(0, 0.1)
+  ball.addForce(wind)
+
   ball.update();
   ball.show();
 }
